@@ -20,6 +20,6 @@ def calculation_with_initial_generation(n: str, i0: str, i1: str):
         for _ in range(i0):
             x = logistic_equation(x, k)
         for _ in range(i0, i1):
-            print(f"{k:.2f} {x:.2f}")
+            print(f"{k:.2f} {round(x, 2):.2f}")
             x = logistic_equation(x, k)
         k = round(k + 0.01, 2)
