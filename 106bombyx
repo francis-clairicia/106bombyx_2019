@@ -2,6 +2,7 @@
 # -*- coding: Utf-8 -*
 
 import sys
+from decimal import Decimal
 from bombyx_calculation import calculation_with_given_k, calculation_with_initial_generation
 
 HELP_STR = """USAGE
@@ -36,7 +37,7 @@ def main(argc: int, argv: list):
         print(HELP_STR)
         return 0
     error_check(argc, argv)
-    args = tuple(float(value) for value in argv[1:])
+    args = tuple(Decimal(value) for value in argv[1:])
     function_for_calculation = {
         2: calculation_with_given_k,
         3: calculation_with_initial_generation
