@@ -9,7 +9,7 @@
 
 static double logistic_equation(double x, double k)
 {
-    double new_x = k * x * (1000 - x) / 1000;
+    double new_x = k * x * ((1000 - x) / 1000);
 
     if (new_x < 0)
         return (0);
