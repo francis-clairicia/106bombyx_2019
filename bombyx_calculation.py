@@ -3,7 +3,7 @@
 from decimal import Decimal
 
 def logistic_equation(x: Decimal, k: Decimal):
-    x = k * x * (Decimal('1000') - x) / Decimal('1000')
+    x = k * x * (1 - (x / Decimal('1000')))
     return Decimal('0') if x < Decimal('0') else x
 
 def calculation_with_given_k(n: Decimal, k: Decimal):
