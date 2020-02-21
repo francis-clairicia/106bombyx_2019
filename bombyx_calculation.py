@@ -1,24 +1,25 @@
 # -*- coding: Utf-8 -*
 
-from decimal import Decimal
+def logistic_equation(x: float, k: float):
+    x = k * x * ((1000 - x) / 1000)
+    return 0 if x < 0 else x
 
-def logistic_equation(x: Decimal, k: Decimal):
-    x = k * x * (1 - (x / Decimal('1000')))
-    return Decimal('0') if x < Decimal('0') else x
-
-def calculation_with_given_k(n: Decimal, k: Decimal):
-    x = n
+def calculation_with_given_k(n: str, k: str):
+    x = int(n)
+    k = float(k)
     for i in range(100):
         print(f"{i + 1} {x:.2f}")
         x = logistic_equation(x, k)
 
-def calculation_with_initial_generation(n: Decimal, i0: Decimal, i1: Decimal):
-    k = Decimal('1')
+def calculation_with_initial_generation(n: str, i0: str, i1: str):
+    k = 1
+    i0 = int(i0)
+    i1 = int(i1) + 1
     while k <= 4:
-        x = n
-        for _ in range(int(i0)):
+        x = int(n)
+        for _ in range(i0):
             x = logistic_equation(x, k)
-        for _ in range(int(i0), int(i1) + 1):
+        for _ in range(i0, i1):
             print(f"{k:.2f} {x:.2f}")
             x = logistic_equation(x, k)
-        k += Decimal('0.01')
+        k = round(k + 0.01, 2)
