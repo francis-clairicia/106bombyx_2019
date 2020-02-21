@@ -28,6 +28,8 @@ def error_check(argc: int, argv: list):
     else:
         if not str(argv[2]).isdigit() or not str(argv[3]).isdigit():
             sys.exit(84)
+        if int(argv[3]) < int(argv[2]):
+            sys.exit(84)
 
 def main(argc: int, argv: list):
     if argc == 2 and argv[1] == "-h":
